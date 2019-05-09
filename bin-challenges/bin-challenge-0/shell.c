@@ -13,4 +13,5 @@ int main(){
 	
 	//That's the buffer address written following Little Endian logic
 	printf("\x78\xc4\xff\xff");
- 
+ 	return 0;
+}
