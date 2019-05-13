@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-/*This code is exactely the same of mission0.c in order to obtain a memory
+/*This code is exactely the same of code-challenge.c in order to obtain a memory
 structured in the same way of it. In this way, by using a printf, it is possible
 to retieve the correct buffer address.
 This retrieved address will be used into the shellcode.
