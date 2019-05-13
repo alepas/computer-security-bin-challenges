@@ -4,32 +4,24 @@ Connect to bin.it port 22 via SSH as user <em>username</em>. You will find the f
 The executable program is compiled with the commanda into compile.sh file.
 
 <h2>Solution</h2>
-By doing <em>ls</em> command it is possible to see that into mission0 folder 
+By doing <em>ls</em> command it is possible to see that into mission1 folder 
 there are the following files:
 <ul>
-  <li> <strong>flag</strong> --> the file that must be read in order to reach the goal. <br> NB. It is not possible to modify the user     privileges via <em>chmod</em> neither via <em>chown</em>.</li>
-  <li> mission0 file </li>
-  <li> <strong>mission0.c</strong> --> file containing the vulnerable code that can be exploited in order to obtain the permissions to     read flag.</li>
+  <li> <strong>flag</strong> --> the file that must be read in order to reach the goal. <br> 
+  NB. It is not possible to modify the user privileges via <em>chmod</em> neither via <em>chown</em>.</li>
+  <li> mission1 file </li>
+  <li> <strong>mission1.c</strong> --> file containing the vulnerable code that can be exploited in order to obtain the permissions to     read flag.</li>
   <li> <strong>writabale</strong> --> folder in which it is possible to save useful code to exploit the challenge</li>
 </ul>
 
-The mission.c vulnerability is given by the fact that the buffer's dimension is known and the presence of strcpy function which doesn't give any protection against <strong>buffer overflow attacks</strong>.
+The mission.c vulnerability is given by the fact that the buffer's dimension is known and the presence of fread function which doesn't give any protection against <strong>buffer overflow attacks</strong>.
 
-In order to write a valid exploit it is necessary to:
-<ul>
-  <li>know the exact address of the buffer. A good solution to retrieve it is to write a new file equal to program.c by doing the         commands in obtain-buffer-addr.sh.</li>
-  <li>find a shell code such as the following:<br>
-  <em>\x31\xc0\xb0\x46\x31\xdb\x31\xc9\xcd\x80\xeb\x16\x5b\x31\xc0\x88\x43\x07 <br>
-  \x89\x5b\x08\x89\x43\x0c\xb0\x0b\x8d\x4b\x08\x8d\x53\x0c\xcd\x80\xe8\xe5\xff <br>
-  \xff\xff\x2f\x62\x69\x6e\x2f\x73\x68</em></li>
-</ul>
-
-Once all the elements have been found, write and execute the code into shell.c.<br>
-It retrieves the secret code written into the flag file.
+In order to write a valid expoit look at the README.md file of <em>Challenge 0</em>, in fact this challenge is really similar to it and it can be solved by applying the same procedure. Anyway I have added also the program.c and shell.c file in order to let you better understand this specific case.
 
 <h3>Some notes</h3>
 <ul>
-  <li>if it goes in Segmentation Fault, modify a little the buffer address. The buffer address is \xnn\xn<strong>N</strong>\xnn\xnn, it   can be modified by adding 2 or 4 to the bold char. </li>
+  <li>If it goes in Segmentation Fault, modify a little the buffer address. The buffer address is \xnn\xn<strong>N</strong>\xnn\xnn, it   can be modified by adding 2 or 4 to the bold char. </li>
+  <li>A difference from <em>Challenge 0</em> is given by the fact that there is no check on the argc so it is not necessary to care about     it. </li>
 </ul>
 
 
