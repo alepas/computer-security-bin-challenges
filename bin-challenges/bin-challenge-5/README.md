@@ -10,7 +10,7 @@ Even though it is possible to see the code into this folder, while I
 was doing the challenge it was not available and so it has been necessary 
 to find an alternative way to understand what <em>mission.c</em> was doing.<br>
 In order to get it, it is necessary to enter into debug mode and disassemble 
-the main function via commands written into <em>disassemble_main.sh</em>. 
+the main function via commands written into <em>disassemble_code.sh</em>. 
 The assembly code will give some informations such as the buffer dimension and
 the addess associated to a push.<br>
 
